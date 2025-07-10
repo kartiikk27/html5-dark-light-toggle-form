@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dark/Light Mode with Icon</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #1a237e;
+      --card-bg: white;
+      --btn-bg: #1976d2;
+      --btn-hover: #0d47a1;
+      --link-color: #00796b;
+      --link-hover: #004d40;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --card-bg: #1e1e1e;
+      --btn-bg: #bb86fc;
+      --btn-hover: #985eff;
+      --link-color: #64ffda;
+      --link-hover: #1de9b6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    section, article, aside {
+      background-color: var(--card-bg);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 700px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    input {
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: var(--btn-bg);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--btn-hover);
+    }
+
+    a {
+      color: var(--link-color);
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+    }
+
+    /* Toggle switch with icon */
+    .toggle-container {
+      max-width: 700px;
+      margin: auto;
+      text-align: right;
+    }
+
+    .toggle-icon {
+      font-size: 24px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: var(--text-color);
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-icon:hover {
+      transform: rotate(20deg);
+    }
+
+    @media (max-width: 600px) {
+      section, article, aside {
+        margin: 10px;
+        padding: 15px;
+      }
+
+      button {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toggle-container">
+    <button class="toggle-icon" id="modeIcon" onclick="toggleMode()">🌙</button>
+  </div>
+
+  <section>
+    <h1>Welcome to My Webpage</h1>
+    <p>This HTML5 page now includes a 🌞/🌙 mode switch!</p>
+    <img src="cipher image.png" alt="CipherSchools Logo"/>
+  </section>
+
+  <article>
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </article>
+
+  <aside>
+    <p>Visit my favorite site:</p>
+    <a href="https://www.wikipedia.org" target="_blank">Go to Wikipedia</a>
+  </aside>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const icon = document.getElementById('modeIcon');
+
+      body.classList.toggle('dark-mode');
+
+      if (body.classList.contains('dark-mode')) {
+        icon.textContent = '🌞'; // Show sun in dark mode
+      } else {
+        icon.textContent = '🌙'; // Show moon in light mode
+      }
+    }
+  </script>
+
+</body>
+</html>
